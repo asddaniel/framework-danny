@@ -1,0 +1,19 @@
+{
+    "name": "daniel/framework-danny",
+    "description": "framework daniel",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daniel Assani",
+            "email": "devasddaniel@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}
