@@ -40,6 +40,37 @@ function array_compare($comparer, $comparant){
     }
     return $final;
 }
+function reduce_to_concate($str1, $str2){
+return $str1." ".$str2;
+}
+function command($commande){
+    return exec($commande);
+}
+function cmd($commande){
+    return system($commande);
+}
+function custom_generator_increment($number){
+    for($i=0; $i<$number; $i++){
+        yield($i);
+    }
+}
+function custom_generator(array $array){
+    for($i=0; $i<count($array); $i++){
+        yield($array[$i]);
+    }
+}
+function customException($e)
+{
+echo 'Ligne ', $e->getLine(), ' dans ', $e->getFile(), '<br /><strong>Exception
+lancée</strong> : ', $e->getMessage();
+}
+function error2exception($code, $message, $fichier, $ligne)
+{
+// Le code fait office de sévérité.
+// Reportez-vous aux constantes prédéfinies pour en savoir plus.
+// http://fr2.php.net/manual/fr/errorfunc.constants.php
+throw new App\Exception\Error($message, 0, $code, $fichier, $ligne);
+}
 
 function reduce($str1, $str2)
   {

@@ -1,0 +1,15 @@
+<?php  
+include("init.php");
+
+
+// var_dump($argv);
+$string = "";
+for($i=1; $i<count($argv); $i++){
+    $string = $string." ".$argv[$i];
+}
+if(count($argv)>1){
+    echo cmd($string);
+}
+
+
+?>

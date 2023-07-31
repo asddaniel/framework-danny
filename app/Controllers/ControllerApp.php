@@ -6,6 +6,8 @@ namespace App\controllers;
 use App\models\Structure;
 use App\models\base;
 use App\framework\Request;
+use App\Exemple\Exercice;
+use App\Exception\Error;
 
 class controllerApp{
 
@@ -29,8 +31,29 @@ public function get($page){
 	 
 $request = new Request();
 echo($request->method());
-   
-	
+
+// Le code fait office de sévérité.
+// Reportez-vous aux constantes prédéfinies pour en savoir plus.
+// http://fr2.php.net/manual/fr/errorfunc.constants.php
+set_error_handler('error2exception');
+set_exception_handler('customException');
+//throw new Error($message, 0, $code, $fichier, $ligne);
+
+       $generateur = custom_generator(["a", "b", "c"]);
+	   foreach ($generateur as  $value) {
+		echo $value.", ";
+	   }
+
+	   $generateur = custom_generator_increment(500000);
+
+    //  for($i=0; $i<500000; $i++){
+	// 	echo $i.", ".PHP_EOL;
+	//  }
+	   foreach ($generateur as  $value) {
+		echo $value.", ".PHP_EOL;
+	   }
+
+	//    echo(\exec("cordova --version"));
 
 	
 	// $pdo = $this->database->init_connection();
@@ -152,7 +175,7 @@ private function add($table, $attributes, $data){
 	$prerequette = "INSERT INTO ".$table."(".substr(array_reduce($attributes, "reduce"), 1, strlen(array_reduce($attributes, "reduce"))-1).") VALUES(".substr(array_reduce($attributes, "reduce2"), 1, strlen(array_reduce($attributes, "reduce2"))-1).")";
 	
 	$request = $this->database->init_connection()->prepare($prerequette);
-	$request->execute($data);
+	$request->execute($data); //
 
 }
 
